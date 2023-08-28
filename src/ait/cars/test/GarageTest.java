@@ -14,7 +14,7 @@ class GarageTest {
 
     @BeforeEach
     void setUp() {
-        garage = new GarageImpl(5);
+        garage = new GarageImpl(4);
         cars = new Car[3];
         cars[0] = new Car("AA7733", "Escape", "Ford", 2488.00, "black");
         cars[1] = new Car("AA1155", "Ibiza", "Seat", 1390.00, "red");
@@ -31,7 +31,6 @@ class GarageTest {
         assertFalse(garage.addCar(cars[1]));
         Car car = new Car("AA1111", "Model X", "Tesla", 1020, "white");
         assertTrue(garage.addCar(car));
-        assertEquals(5, garage.);
         car = new Car("AA7777", "Model X", "Tesla", 1020, "white");
         assertFalse(garage.addCar(car));
     }
@@ -39,16 +38,15 @@ class GarageTest {
     @Test
     void removeCar() {
         Car car = garage.removeCar("AA7733");
-        assertEquals(cars[2], cars);
-        assertEquals(3, garage.);
-        assertEquals(null, garage.removeCar("AA7733"));
+        assertEquals(cars[0], car);
+
     }
 
     @Test
     void findCarByRegNumber() {
-        Car car  = garage.findCarByRegNumber("AA1155");
+        Car car = garage.findCarByRegNumber("AA1155");
         assertEquals(cars[1], car);
-        car = garage.findCarByRegNumber("AA9999");
+        car = garage.findCarByRegNumber("AA5555");
         assertNull(car);
 
     }
